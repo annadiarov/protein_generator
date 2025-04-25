@@ -1,3 +1,14 @@
 *.pt
 *.pyc
 *core*
+# Ignore the cache files
+# find . -name __pycache__ -type d
+./utils/__pycache__
+./model/se3_transformer/runtime/__pycache__
+./model/se3_transformer/model/layers/__pycache__
+./model/se3_transformer/model/__pycache__
+./model/se3_transformer/__pycache__
+./model/utils/__pycache__
+./model/__pycache__
+# Ignore intelij files
+.idea/
