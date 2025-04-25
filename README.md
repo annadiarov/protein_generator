@@ -36,3 +36,33 @@ We are excited for the community to get involved writing new potentials and buil
 
 ## Acknowledgements
 We would like to thank Frank DiMaio and Minkyung Baek who developed RoseTTAFold which allowed us to build out this platform. Other acknowledgements for code and development please see the preprint.
+
+## About this fork...
+
+### Installation in HPC cluster
+
+The original `environment.yml` file is not compatible with the HPC cluster using miniforge. 
+For manual installation, please follow the steps below:
+
+```bash
+conda create -n protgen_cuda python=3.10
+conda activate protgen_cuda
+pip install torch==2.1.0 torchvision==0.16.0 torchaudio==2.1.0 --index-url https://download.pytorch.org/whl/cu121
+conda install -c dglteam/label/th21_cu121 dgl
+pip install nvidia-ml-py
+pip install seaborn
+pip install pydantic # DGL dependency
+pip install PyYAML # DGL dependency
+pip install biopython
+conda install opt_einsum -c conda-forge
+pip install icecream
+pip install e3nn
+pip install numpy==1.26.4 # To avoid problems with numpy >2.0
+```
+
+Download the model weights from the original repository as follows in the
+`protein_generator` base directory:
+```bash
+wget http://files.ipd.uw.edu/pub/sequence_diffusion/checkpoints/SEQDIFF_221219_equalTASKS_nostrSELFCOND_mod30.pt -P model
+wget http://files.ipd.uw.edu/pub/sequence_diffusion/checkpoints/SEQDIFF_221219_equalTASKS_nostrSELFCOND_mod30.pt -P model
+```
