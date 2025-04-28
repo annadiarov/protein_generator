@@ -10,5 +10,6 @@
 ./model/se3_transformer/__pycache__
 ./model/utils/__pycache__
 ./model/__pycache__
+./model/.ipynb_checkpoints
 # Ignore intelij files
 .idea/
