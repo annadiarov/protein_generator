@@ -133,7 +133,7 @@ def get_args():
 
     # potential args
     parser.add_argument('--potential_scale', default=None, type=str,
-        help='scale at which to guid the sequence potential')
+        help='scale at which to guide the sequence potential')
     parser.add_argument('--potentials', default='', 
         help='list of potentials to use, must be paired with potenatial_scale e.g. aa_bias,solubility,charge')
     parser.add_argument('--hydrophobic_score', default='0', type=float, 
