@@ -15,6 +15,13 @@ I/O:
 * `out` output directory and for files.
 * `T` Number of timesteps to use. The bigger the protein, the higher the number. Default 25.
   
+Diffusion-related:
+* `sampling_temp`: Temperature to sample input sequence to as a fraction of `T` (0 to 1). If `sequence` is provided, the diffusion process will only sample the masked positions.
+  * Partial diffusion mode (`sampling_temp` < 1) is used in the paper to promote further exploration of known active sequence subspaces for the multistate designs, check [this example](../examples/multistate_args.json).
+    This mode requires an input `pdb` to be provided.
+    Apparently, the `sampling_temp` reduce the number of timestep to sample the input as `T * sampling_temp`.
+  * Default diffusion mode (`sampling_temp` = 1) allows only the diffusion of the user masked AA with `X`. The rest of the sequence is kept fixed throughout the diffusion process.
+
 Potential-related:
 * `potentials` comma separated list of potentials to use, must be paired with potenatial_scale e.g. aa_bias,solubility,charge.
 * `potential_scale` comma seperated list of weights for each potential in same order as potentials (multiplying factor gradient).
