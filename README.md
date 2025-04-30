@@ -63,6 +63,6 @@ pip install numpy==1.26.4 # To avoid problems with numpy >2.0
 Download the model weights from the original repository as follows in the
 `protein_generator` base directory:
 ```bash
-wget http://files.ipd.uw.edu/pub/sequence_diffusion/checkpoints/SEQDIFF_221219_equalTASKS_nostrSELFCOND_mod30.pt -P model
+wget http://files.ipd.uw.edu/pub/sequence_diffusion/checkpoints/SEQDIFF_230205_dssp_hotspots_25mask_EQtasks_mod30.pt -P model
 wget http://files.ipd.uw.edu/pub/sequence_diffusion/checkpoints/SEQDIFF_221219_equalTASKS_nostrSELFCOND_mod30.pt -P model
 ```
