@@ -27,7 +27,20 @@ from typing import Dict
 import torch
 import torch.nn as nn
 from torch import Tensor
-from torch.cuda.nvtx import range as nvtx_range
+
+if torch.cuda.is_available():
+    from torch.cuda.nvtx import range as nvtx_range
+else:
+    # Define a no-op for nvtx_range when CUDA is not available
+    from contextlib import contextmanager
+
+    @contextmanager
+    def nvtx_range(name):
+        try:
+            yield
+        finally:
+            pass
+
 
 from se3_transformer.model.fiber import Fiber
 
