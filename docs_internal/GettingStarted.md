@@ -8,8 +8,7 @@ List of relevant arguments for inference.py to use potentials.
 I/O:
 * `length` Specify length, or length range, you want the outputs. e.g. 100 or 95-105
 * `num_designs` Number of designs to make
-* `sequence` input sequence to diffuse.
-  * (?) I guess this sequence will be used as starting point for the diffusion process, but to confirm throgh code inspection.
+* `sequence` input sequence to diffuse. The positions to be should be masked with `X`, e.g. `AHXXCLX`. Multiple chains can be specified by separating them with `/`, e.g. `AHXXCLX/AXXXCLX`.
 * `contigs` pieces of input protein to keep.
   * (?) Investigate effect when no input sequence is provided (uncoditional generation).
 * `input_json` json file with all the arguments for running an inference. Check [this example](../examples/args.json).
