@@ -66,3 +66,28 @@ Download the model weights from the original repository as follows in the
 wget http://files.ipd.uw.edu/pub/sequence_diffusion/checkpoints/SEQDIFF_230205_dssp_hotspots_25mask_EQtasks_mod30.pt -P model
 wget http://files.ipd.uw.edu/pub/sequence_diffusion/checkpoints/SEQDIFF_221219_equalTASKS_nostrSELFCOND_mod30.pt -P model
 ```
+### Local installation on CPU-only env for testing purposes
+
+The original `environment.yml` file is not compatible with the CPU version of the model.
+For manual installation, please follow the steps below:
+
+```bash
+conda create -n protgen_cpu python=3.10
+conda activate protgen_cpu
+conda install pytorch==2.2.1 torchvision==0.17.1 torchaudio==2.2.1 cpuonly -c pytorch
+conda install -c dglteam/label/th21_cpu dgl
+pip install pydantic # DGL dependency
+pip install PyYAML # DGL dependency
+pip install biopython
+conda install opt_einsum -c conda-forge
+pip install icecream
+pip install e3nn
+pip install numpy==1.26.4 # To avoid problems with numpy >2.0
+pip install seaborn
+```
+Download the model weights from the original repository as follows in the
+`protein_generator` base directory:
+```bash
+wget http://files.ipd.uw.edu/pub/sequence_diffusion/checkpoints/SEQDIFF_230205_dssp_hotspots_25mask_EQtasks_mod30.pt -P model
+wget http://files.ipd.uw.edu/pub/sequence_diffusion/checkpoints/SEQDIFF_221219_equalTASKS_nostrSELFCOND_mod30.pt -P model
+```
