@@ -279,7 +279,8 @@ class SEQDIFF_sampler:
        
         # initialize trb dictionary
         self.features['trb_d'] = {}
-        
+
+        # Condition when only the sequence is provided
         if self.args['pdb'] == None and self.args['sequence'] not in ['', None]:
             print('Preparing sequence input')
 
@@ -292,6 +293,7 @@ class SEQDIFF_sampler:
                     aa_list.append(self.conversion.index(x))
                 else:
                     raise Exception('Not an allowable amino acid')
+            # Adjust chain_sep since we are removing the / from the aa_seq
             chain_sep = [x-i for i,x in enumerate(chain_sep)]
             aa_seq = ''.join([self.conversion[x] for x in aa_list])
 
@@ -301,6 +303,7 @@ class SEQDIFF_sampler:
             
             #added check for if in partial diffusion mode will mask
             if self.args['sampling_temp'] == 1.0:
+                # Set 0 to designable (masked) positions and 1 to non-designable positions
                 self.features['mask_seq'] = torch.tensor([0 if x == 'X' else 1 for x in aa_seq]).long()[None,:].bool()
             else:
                 self.features['mask_seq'] = torch.zeros(len(aa_seq)).long()[None,:].bool()
