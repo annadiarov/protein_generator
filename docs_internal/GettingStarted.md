@@ -1,16 +1,41 @@
 # Getting Started!
 
 ## Inference input arguments
-List of relevant arguments for inference.py to use potentials.
+List of relevant arguments for `inference.py` to use potentials to generate new
+sequences without using `pdb` as input.
 
 ### General arguments
 
 I/O:
-* `length` Specify length, or length range, you want the outputs. e.g. 100 or 95-105
+* `contigs` pieces of input protein to keep according to `inference.py`. However,
+  when **not** using `pdb` it **sets the lengths of the output sequences**.
+  Length can be specified in the following ways:
+  * Just a number to specify a concrete length, e.g. 100.
+  * A range of numbers to specify a range of lengths to sample in each design,
+    e.g. 30-40. Notice that at each denoising step, the length of the sequence
+    will be fixed to an specific value in the range (it will not oscillate).
+  * Multiple chains designs seem **not** to be supported without a PDB file using the
+    nomenclature eg. `A10/B10` (raises AssertionError), `10,20` (samples a monomeric seq of max length 30).
+    A workaround is using `sequence` (below) to specify masked chains, e.g. `XXXXX/XXXXXXX`.
+  
+  **/!\ WARNING**: the `length` argument does not seem to be used in the original code. Instead,
+    `contigs` is used to set the length of the output sequence although it is in disagreement with
+    `inference.py` docstring.
+* `length` NOT USED IN CODE! but when provided in `ContigMap` in `sampler.py` (see code snippet below),
+  it checks the compatibility between `contigs` and `length`. For instance, if `contigs` is 10-40 but 
+  length is 10-15, only sequences of length 10-15 will be generated. Maybe this has more relevance
+  when using `pdb` files as input (not our expected use-case).
+  ```python
+  class SEQDIFF_sampler:
+    ...
+    def feature_init(self):
+      ...
+      self.features['rm'] = ContigMap(self.features['parsed_pdb'], self.args['contigs'], 
+                                    self.args['inpaint_seq'], self.args['inpaint_str'],
+                                    self.args['length'])
+  ```
 * `num_designs` Number of designs to make
 * `sequence` input sequence to diffuse. The positions to be should be masked with `X`, e.g. `AHXXCLX`. Multiple chains can be specified by separating them with `/`, e.g. `AHXXCLX/AXXXCLX`.
-* `contigs` pieces of input protein to keep.
-  * (?) Investigate effect when no input sequence is provided (uncoditional generation).
 * `input_json` json file with all the arguments for running an inference. Check [this example](../examples/args.json).
 * `out` output directory and for files.
 * `T` Number of timesteps to use. The bigger the protein, the higher the number. Default 25.
