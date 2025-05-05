@@ -76,7 +76,7 @@ def get_args():
     parser.add_argument('--argmax_seq', default=False, action='store_true',
         help='Argmax seq after coming out of model')
     parser.add_argument('--noise_schedule', default='sqrt',
-        help='Schedule type to add noise, default=cosine, could be [sqrt]')
+        help='Schedule type to add noise, default=sqrt, could be [cosine]')
     parser.add_argument('--sampling_temp', default=1.0, type=float,
         help='Temperature to sample input sequence to as a fraction of T, for partial diffusion')
     parser.add_argument('--loop_design', default=False, action='store_true',
