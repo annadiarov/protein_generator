@@ -358,8 +358,13 @@ class SEQDIFF_sampler:
                 self.features['parsed_pdb'] = parsers.parse_pdb(self.args['pdb'])
             
             # generate contig map
+            # Warning: self.args['lengths'] could be input as the fifth argument
+            # to check compatibility with contigs length. In the original code,
+            # it is not passed to the ContigMap class but I point this out in
+            # case it is relevant in the future.
             self.features['rm'] = ContigMap(self.features['parsed_pdb'], self.args['contigs'], 
                                             self.args['inpaint_seq'], self.args['inpaint_str'])
+
 
             self.features['mappings'] = get_mappings(self.features['rm'])
 
