@@ -2,26 +2,26 @@ aa_composition: # Approximate % of each AA in the protein
   # Data for PG CLI
   # A0.06, C0.02, D0.04, E0.10, F0.04, G0.10, H0.02, I0.04, K0.06, L0.06, M0.02,
   #  N0.03, P0.11, Q0.07, R0.06, S0.04, T0.04, V0.05, W0.01, Y0.03
-  - A: 0.06 # Alanine
-  - C: 0.02 # Cysteine
-  - D: 0.04 # Aspartic acid
-  - E: 0.10 # Glutamic acid
-  - F: 0.04 # Phenylalanine # Added 0.01 to sum up to 1.0
-  - G: 0.10 # Glycine
-  - H: 0.02 # Histidine
-  - I: 0.04 # Isoleucine
-  - K: 0.06 # Lysine
-  - L: 0.06 # Leucine
-  - M: 0.02 # Methionine
-  - N: 0.03 # Asparagine
-  - P: 0.11 # Proline
-  - Q: 0.07 # Glutamine
-  - R: 0.06 # Arginine
-  - S: 0.04 # Serine
-  - T: 0.04 # Threonine
-  - V: 0.05 # Valine
-  - W: 0.01 # Tryptophan
-  - Y: 0.03 # Tyrosine
+   A: 0.06 # Alanine
+   C: 0.02 # Cysteine
+   D: 0.04 # Aspartic acid
+   E: 0.10 # Glutamic acid
+   F: 0.04 # Phenylalanine # Added 0.01 to sum up to 1.0
+   G: 0.10 # Glycine
+   H: 0.02 # Histidine
+   I: 0.04 # Isoleucine
+   K: 0.06 # Lysine
+   L: 0.06 # Leucine
+   M: 0.02 # Methionine
+   N: 0.03 # Asparagine
+   P: 0.11 # Proline
+   Q: 0.07 # Glutamine
+   R: 0.06 # Arginine
+   S: 0.04 # Serine
+   T: 0.04 # Threonine
+   V: 0.05 # Valine
+   W: 0.01 # Tryptophan
+   Y: 0.03 # Tyrosine
 
 aa_cleavage_dimers:
   - FV
