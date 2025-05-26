@@ -772,9 +772,10 @@ class SEQDIFF_sampler:
         '''
             add step to trajectory dictionary
         '''
-        self.trajectory[f'step{self.t}'] = (self.features['xyz'].squeeze().detach().cpu(), 
-                                            self.features['logit_aa_s'][0,:21,:].permute(1,0).detach().cpu(), 
-                                            self.features['seq_diffused'][0,:,:21].detach().cpu())
+        self.trajectory[f'step{self.t}'] = (self.features['xyz'].squeeze().detach().cpu(),
+                                            self.features['logit_aa_s'][0,:21,:].permute(1,0).detach().cpu(),
+                                            self.features['seq_diffused'][0,:,:21].detach().cpu(),
+                                            self.features['pred_lddt'].squeeze().detach().cpu(),)
     
     def noise_x(self):
         '''
