@@ -38,7 +38,7 @@ I/O:
 * `sequence` input sequence to diffuse. The positions to be should be masked with `X`, e.g. `AHXXCLX`. Multiple chains can be specified by separating them with `/`, e.g. `AHXXCLX/AXXXCLX`.
 * `input_json` json file with all the arguments for running an inference. Check [this example](../examples/args.json).
 * `out` output directory and for files.
-* `T` Number of timesteps to use. The bigger the protein, the higher the number. Default 25.
+* `dump_pdb` should activate saving the best pLDDT PDB file of the trajectory to the output directory, however, the best structure is always saved in the output directory.
   
 Diffusion-related:
 * `T` Number of timesteps to use. The bigger the protein, the higher the number. Default 25.
