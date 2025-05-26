@@ -902,6 +902,9 @@ class SEQDIFF_sampler:
         '''
             save the outputs from the model
         '''
+        # create output directory if it does not exist
+        os.makedirs(os.path.dirname(self.out_prefix), exist_ok=True)
+
         # save trajectory
         if self.args['save_all_steps']:
             fname = f'{self.out_prefix}_trajectory.pt'
