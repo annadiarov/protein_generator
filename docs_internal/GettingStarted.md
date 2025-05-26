@@ -38,6 +38,7 @@ I/O:
 * `sequence` input sequence to diffuse. The positions to be should be masked with `X`, e.g. `AHXXCLX`. Multiple chains can be specified by separating them with `/`, e.g. `AHXXCLX/AXXXCLX`.
 * `input_json` json file with all the arguments for running an inference. Check [this example](../examples/args.json).
 * `out` output directory and for files.
+* `save_all_steps` will save a *.pt file with the trajectory of the diffusion process. You can extract the trajectory pdb and fasta files using our script [extract_data_from_traj.py](../utils_internal/extract_data_from_traj.py).
 * `dump_pdb` should activate saving the best pLDDT PDB file of the trajectory to the output directory, however, the best structure is always saved in the output directory.
   
 Diffusion-related:
