@@ -41,6 +41,7 @@ I/O:
 * `T` Number of timesteps to use. The bigger the protein, the higher the number. Default 25.
   
 Diffusion-related:
+* `T` Number of timesteps to use. The bigger the protein, the higher the number. Default 25.
 * `sampling_temp`: Temperature to sample input sequence to as a fraction of `T` (0 to 1). If `sequence` is provided, the diffusion process will only sample the masked positions.
   * Partial diffusion mode (`sampling_temp` < 1) is used in the paper to promote further exploration of known active sequence subspaces for the multistate designs, check [this example](../examples/multistate_args.json).
     This mode requires an input `pdb` to be provided.
