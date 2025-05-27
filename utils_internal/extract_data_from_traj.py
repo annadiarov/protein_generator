@@ -43,7 +43,7 @@ def extract_step_data_from_traj(
     Each PDB file is named with the design name and step number.
     """
     traj_data = load_pt_traj_data(traj_pt_file)
-    design_name = os.path.basename(traj_pt_file).split('.')[0]
+    design_name = '.'.join(split for split in os.path.basename(traj_pt_file).split('.')[:-1])  # Remove file extension
     out_fastas = []
 
     for step, data in traj_data.items():
